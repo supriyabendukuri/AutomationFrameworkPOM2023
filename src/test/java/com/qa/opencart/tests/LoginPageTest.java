@@ -29,6 +29,7 @@ public class LoginPageTest extends BaseTest{
 	
 	@Test(priority = 3)
 	public void doLoginTest() {
-		loginPage.doLogin("supriya@oc.com", "Test@123");
+		accPage =loginPage.doLogin("supriya@oc.com", "Test@123");
+		Assert.assertTrue(accPage.isLogoutLinkExist());
 	}
 }

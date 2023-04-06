@@ -36,10 +36,11 @@ public class LoginPage {
 		
 	}
 	
-	public void doLogin(String un, String pw) {
+	public AccountsPage doLogin(String un, String pw) {
 		driver.findElement(userName).sendKeys(un);
 		driver.findElement(password).sendKeys(pw);
 		driver.findElement(login).click();
+		return new AccountsPage(driver);
 	}
 	
 	
