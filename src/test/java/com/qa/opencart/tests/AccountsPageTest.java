@@ -7,10 +7,11 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import com.qa.opencart.base.BaseTest;
+import com.qa.opencart.constants.AppConstants;
 
 
 
-public class AccountsPageTest extends BaseTest{
+	public class AccountsPageTest extends BaseTest{
 	
 	@BeforeClass
 	public  void accPageSetup(){
@@ -20,14 +21,14 @@ public class AccountsPageTest extends BaseTest{
 	@Test()
 	public void accPageTitleTest() {
 		String actTitle = accPage.getAccPageTitle();
-		Assert.assertEquals(actTitle, "My Account");
+		Assert.assertEquals(actTitle, AppConstants.ACCOUNT_PAGE_TITLE_VALUE);
 		
 	}
 
 	@Test
 	public void accPageURLTest() {
 		String actURL = accPage.getAccPageURL();
-		Assert.assertTrue(actURL.contains("route=account/account"));
+		Assert.assertTrue(actURL.contains(AppConstants.ACCOUNT_PAGE_URL_FRACTION_VALUE));
 	}
 
 	@Test
