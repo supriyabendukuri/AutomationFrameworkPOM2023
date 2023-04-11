@@ -15,7 +15,7 @@ import com.qa.opencart.constants.AppConstants;
 	
 	@BeforeClass
 	public  void accPageSetup(){
-		accPage =loginPage.doLogin("supriya@oc.com", "Test@123");
+		accPage =loginPage.doLogin(prop.getProperty("username").trim(), prop.getProperty("password").trim());
 	}
 	
 	@Test()
@@ -39,11 +39,18 @@ import com.qa.opencart.constants.AppConstants;
 	@Test
 	public void accPageHeadersCountTest() {
 		List<String> headersList =accPage.getAccountsPageHeadersList();
-		Assert.assertEquals(headersList.size(), 4);
+		Assert.assertEquals(headersList.size(), AppConstants.ACCOUNTS_PAGE_HEADERS_COUNT);
 		System.out.println("Accounts page headers list" + headersList);
 	}
 
 	@Test
 	public void accPageHeadersValueTest() {
+		List<String> headersList =accPage.getAccountsPageHeadersList();
+		Assert.assertEquals(headersList.size(), AppConstants.ACCOUNTS_PAGE_HEADERS_COUNT);
+		System.out.println();
+		Assert.assertEquals(headersList, AppConstants.EXPECTED_ACCOUNTSPAGE_HEADERS_LIST);
+		
 	}
+	
+	
 }

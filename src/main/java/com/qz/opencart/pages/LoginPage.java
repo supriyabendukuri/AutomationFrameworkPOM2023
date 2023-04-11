@@ -42,6 +42,7 @@ public class LoginPage {
 	}
 	
 	public AccountsPage doLogin(String un, String pw) {
+		System.out.println("My App Credentials are" + " " +un + ":"+ pw);
 		eleUtil.waitForElementVisible(userName, AppConstants.DEFAULT_MEDIUM_TIMEOUT).sendKeys(un);
 		eleUtil.doSendKeys(password, pw);
 		eleUtil.doClick(login);
